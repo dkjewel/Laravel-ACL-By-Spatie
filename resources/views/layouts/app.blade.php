@@ -47,7 +47,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
         <!-- Brand Logo -->
-        <a href="" class="brand-link">
+        <a href="{{route('home')}}" class="brand-link">
             <img style="margin-left: 12px">
             <span class="brand-text font-weight-light">MultiAuth & Permission</span>
         </a>
@@ -72,10 +72,10 @@
 
 
                     {{--Manage Roles and Permission--}}
-
+                    @role('Administer')
 
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('roles.index')}}" class="nav-link">
                             <i class="nav-icon fa fa-lock"></i>
                             <p>
                                 Manage Role
@@ -85,7 +85,7 @@
 
 
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('permissions.index')}}" class="nav-link">
                             <i class="nav-icon fa fa-user-circle"></i>
                             <p>
                                 Manage Permission
@@ -107,7 +107,7 @@
 
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{route('users.create')}}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p> Create User</p>
                                 </a>
@@ -116,7 +116,7 @@
 
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{route('users.index')}}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p> User List </p>
                                 </a>
@@ -125,11 +125,11 @@
 
                     </li>
 
-
+                    @endrole
 
                     {{--Manage Posts--}}
 
-
+                    @role('Administer|Author')
                     <li class="nav-item has-treeview">
                         <a href="" class="nav-link">
                             <i class="nav-icon fa fa-bars"></i>
@@ -158,6 +158,17 @@
                             </li>
                         </ul>
 
+                    </li>
+                    @endrole
+
+
+                    {{--Extra Post List Foe Users--}}
+
+                    <li class="nav-item">
+                        <a href="{{route('posts.index')}}" class="nav-link">
+                            <i class="fa fa-newspaper-o  nav-icon"></i>
+                            <p> Post List </p>
+                        </a>
                     </li>
 
 
