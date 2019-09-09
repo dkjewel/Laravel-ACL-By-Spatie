@@ -26,5 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
 
+Route::resource('permissions', 'PermissionController');
+
+Route::resource('roles', 'RoleController');
 
 Route::resource('posts', 'PostController');
